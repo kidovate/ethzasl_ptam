@@ -4,6 +4,7 @@ git_checkedout:
 	mkdir -p sources
 	git clone https://github.com/edrosten/gvars.git sources
 	cd sources && git checkout 1f325cead6117b4fbd8016e46dc2f654f0ab7f25
+	$(if $(shell arch)=="armv7l", cp -f MakefileArm7.in sources/Makefile.in)
 	touch git_checkedout
 
 gvars_built: 
